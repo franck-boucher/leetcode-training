@@ -1,4 +1,4 @@
-import { expect } from "https://deno.land/x/simple_expect@1.0.0/mod.ts";
+import { expect } from "https://deno.land/x/simple_expect@1.1.0/mod.ts";
 
 const isStrValid = function (s: string): boolean {
   const stack = [];
@@ -24,10 +24,12 @@ const isStrValid = function (s: string): boolean {
   return true;
 };
 
-expect(isStrValid).withParams("()").toBeTrue();
-expect(isStrValid).withParams("()[]{}").toBeTrue();
-expect(isStrValid).withParams("(]").toBeFalse();
-expect(isStrValid).withParams("((()))").toBeTrue();
-expect(isStrValid).withParams("((())").toBeFalse();
-expect(isStrValid).withParams("(([]){})").toBeTrue();
-expect(isStrValid).withParams(")").toBeFalse();
+expect(isStrValid).run(({ withParams }) => {
+  withParams("()").toBeTrue();
+  withParams("()[]{}").toBeTrue();
+  withParams("(]").toBeFalse();
+  withParams("((()))").toBeTrue();
+  withParams("((())").toBeFalse();
+  withParams("(([]){})").toBeTrue();
+  withParams(")").toBeFalse();
+});

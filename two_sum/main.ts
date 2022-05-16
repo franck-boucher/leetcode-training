@@ -1,4 +1,4 @@
-import { expect } from "https://deno.land/x/simple_expect@1.0.0/mod.ts";
+import { expect } from "https://deno.land/x/simple_expect@1.1.0/mod.ts";
 
 const twoSum = (nums: number[], target: number): number[] => {
   for (let i = 0; i < nums.length - 1; i++) {
@@ -11,6 +11,8 @@ const twoSum = (nums: number[], target: number): number[] => {
   return [];
 };
 
-expect(twoSum).withParams([2, 7, 11, 15], 9).toBe([0, 1]);
-expect(twoSum).withParams([3, 2, 4], 6).toBe([1, 2]);
-expect(twoSum).withParams([3, 3], 6).toBe([0, 1]);
+expect(twoSum).run(({ withParams }) => {
+  withParams([2, 7, 11, 15], 9).toBe([0, 1]);
+  withParams([3, 2, 4], 6).toBe([1, 2]);
+  withParams([3, 3], 6).toBe([0, 1]);
+});

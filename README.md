@@ -6,12 +6,17 @@ For these exercises I made [simple-expect](https://github.com/franck-boucher/sim
 
 ## How to run
 
-1. Clone the repo and install Deno
-https://deno.land/
+1. Clone the repo and install Deno https://deno.land/
 
 2. Run a solution
+
 ```
 cd ./some_exercice
 deno run main.ts
 ```
 
+3. Run all tests
+
+```
+deno run --allow-read --allow-run main.ts
+```
